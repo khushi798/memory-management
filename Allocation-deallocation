@@ -1,0 +1,82 @@
+# Memory Management
+
+## Memory Allocation
+
+Memory allocation is the process of reserving a portion of memory for the program to use. There are several ways to allocate memory in C and C++, including:
+
+- `malloc()`: Allocates a block of size bytes of memory, and returns a pointer to the first byte of the block.
+- `calloc()`: Allocates a block of memory for an array of num elements, each of size bytes, and initializes all bytes in the block to zero.
+- `realloc()`: Changes the size of the memory block pointed to by ptr to size bytes.
+- `new` operator: Allocates memory for an object of a specific type and returns a pointer to the object.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Allocate memory for an array of 10 integers
+    int* p = (int*)malloc(10 * sizeof(int));
+
+    // Use the allocated memory
+    for (int i = 0; i < 10; i++)
+        p[i] = i * i;
+
+    // Print the values in the allocated memory
+    for (int i = 0; i < 10; i++)
+        printf("%d\n", p[i]);
+
+    // Deallocate the memory
+    free(p);
+
+    return 0;
+}
+Memory Deallocation
+Memory deallocation is the process of freeing up memory that was previously allocated. This is necessary to prevent memory leaks, 
+which occur when memory is allocated but never deallocated. In C and C++, memory is deallocated using the free() function, or the delete operator.
+#include <stdio.h>
+#include <stdlib.h>
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    // Allocate memory for an array of 10 integers
+    int* p = (int*)malloc(10 * sizeof(int));
+
+    // Use the allocated memory
+    for (int i = 0; i < 10; i++)
+        p[i] = i * i;
+
+    // Print the values in the allocated memory
+    for (int i = 0; i < 10; i++)
+        printf("%d\n", p[i]);
+
+    // Deallocate the memory
+    free(p);
+
+    return 0;
+}
+#include <iostream>
+
+int main()
+{
+    // Allocate memory for an object of type int
+    int* p = new int;
+
+    // Use the allocated memory
+    *p = 42;
+
+    // Print the value in the allocated memory
+    std::cout << *p << std::endl;
+
+    // Deallocate the memory
+    delete p;
+
+    return 0;
+}
+It's important to ensure that every allocated memory 
+is deallocated in order to avoid memory leaks and other related issues.
+Note: This code snippet is just a basic illustration of
+ memory allocation and deallocation, and doesn't handle errors or edge cases.
